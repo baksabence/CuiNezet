@@ -1,17 +1,16 @@
 
 package modell;
 
-import java.util.Scanner;
 
 
 
-public class Jatek {
+public class JatekModell {
     private Lada[] ladak;
-    private static final Scanner sc = new Scanner(System.in);
+    
     private int valasztas;
     
 
-    public Jatek() {
+    public JatekModell() {
         valasztas = -1;
         ladak = new Lada[3];
         ladak[0] = new Lada("Arany", "Én rejtem a kincset!");
@@ -19,9 +18,9 @@ public class Jatek {
         ladak[2] = new Lada("Ezüst", "Az Arany hazudik!");
         
         
-        megjelenit(kezdes());
-        bekeres();
-        megjelenit(ellenorzes());
+       // megjelenit(kezdes());
+       // bekeres();
+       // megjelenit(ellenorzes());
     }
 
     public String kezdes() {
@@ -36,16 +35,17 @@ public class Jatek {
         return s;
     }
 
-    private void bekeres() {
-        megjelenit("Melyik ládában van a kincs? (1,2,3): ");
-        valasztas = sc.nextInt();
+    public int getValasztas() {
+        return valasztas;
     }
 
-    private void megjelenit(String uzenet) {
-        System.out.print(uzenet);
+    public void setValasztas(int valasztas) {
+        this.valasztas = valasztas;
     }
+    
+    
 
-    private String ellenorzes() {
+    public String ellenorzes() {
          String talalt = "Gratulálok!";
          String nemTalalt = "Gratulálok!";
          return ladak[valasztas].isKincs() ? talalt : nemTalalt;
